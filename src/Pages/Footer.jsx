@@ -25,8 +25,8 @@ const Footer = () => {
 
         <div className="footer-section contact">
           <h2>Contact Us</h2>
-          <p>Email: support@financeapp.com</p>
-          <p>Phone: +123 456 7890</p>
+          <p>Email: pk7386510581@gmail.com</p>
+          <p>Phone: +91 7386510581</p>
         </div>
 
         <div className="footer-section social">
@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Personal Finance Management. All Rights Reserved.</p>
+        <p>© 2025 Personal Finance Management. All Rights Reserved.</p>
       </div>
     </footer>
   );
