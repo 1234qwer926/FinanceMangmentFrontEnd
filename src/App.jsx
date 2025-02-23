@@ -3,6 +3,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Content from "./Pages/Content";
+import Footer from "./Pages/Footer";
+import AddFinance from "./Pages/AddFinance";
 import "./App.css";
 
 
@@ -10,7 +12,7 @@ function App() {
   return <div>
     <Router>
     <nav className="navbar">
-        <div className="logo">MyLogo</div>
+        <div className="logo">ExpenseHub</div>
         <input type="checkbox" id="menu-toggle"/>
         <label htmlFor="menu-toggle" className="hamburger">&#9776;</label>
         <ul className="nav-links">
@@ -25,7 +27,9 @@ function App() {
         <Route path="/Login" element={<Login/>}></Route>
         <Route path="/Register" element={<Register/>}></Route>
         <Route path="/" element={<Content/>}></Route>
+        <Route path="/AddFinance" element={<AddFinance/>}></Route>
       </Routes>
+      <Footer/>
     </Router>
   </div>;
 }

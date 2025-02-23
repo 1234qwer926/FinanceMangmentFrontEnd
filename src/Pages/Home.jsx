@@ -1,11 +1,31 @@
-import React from 'react'
+import React from "react";
+import "../PageCss/Home.css"
 
 const Home = () => {
   return (
-    <div>
-      <h1>This is the home Page</h1>
-    </div>
-  )
-}
+    <div className="home-container">
+      <header className="hero">
+        <h1>Manage Your Finances with Ease</h1>
+        <p>Track your income, expenses, and savings effortlessly.</p>
+        <button className="cta-btn">Get Started</button>
+      </header>
 
-export default Home
+      <section className="features">
+        <div className="feature-card">
+          <h2>Track Expenses</h2>
+          <p>Monitor your daily spending and stay on top of your budget.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Manage Income</h2>
+          <p>Keep a record of all your earnings in one place.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Analyze Trends</h2>
+          <p>Gain insights into your financial habits and plan wisely.</p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

@@ -1,18 +1,22 @@
-import React from 'react'
+import React from "react";
 import "../PageCss/Login.css"
 
 const Login = () => {
   return (
-    <div className='login-container'>
-      <form action="/">
-        <label htmlFor="email">Email : </label>
-        <input type="email" placeholder='Enter your Email' name='email' id='email' />
-        <label htmlFor="pass">Password : </label>
-        <input type="password" placeholder='********' name='pass' id='password' />
-        <button type='submit'>Submit</button>
+    <div className="login-container">
+      <form>
+        <h2>Login</h2>
+
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required />
+
+        <button type="submit">Login</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

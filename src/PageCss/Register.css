@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -20,13 +20,11 @@ h2 {
     color: #333;
 }
 
-
 label {
     text-align: left;
     margin: 10px 0 5px;
     font-weight: bold;
 }
-
 
 input {
     padding: 10px;
@@ -53,7 +51,7 @@ button:hover {
 }
 
 @media screen and (max-width: 480px) {
-    .login-container {
+    .signup-container {
         width: 90%;
     }
 }
