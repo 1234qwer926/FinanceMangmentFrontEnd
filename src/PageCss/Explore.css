@@ -8,9 +8,9 @@
     border-radius: 10px;
 }
 
+/* Filter Section */
 .filter-container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
@@ -26,6 +26,7 @@
     min-width: 150px;
 }
 
+/* Add Button */
 .add-btn {
     background-color: #28a745;
     border: none;
@@ -38,13 +39,15 @@
 .add-btn .link-btn {
     text-decoration: none;
     color: white;
+    display: block;
+    padding: 10px 15px;
 }
 
 .add-btn:hover {
     background-color: #218838;
 }
 
-
+/* Table */
 .table-container {
     width: 100%;
     overflow-x: auto;
@@ -67,6 +70,16 @@ th {
     color: white;
 }
 
+/* Table Row Hover */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e6f7ff;
+}
+
+/* Buttons */
 .edit-btn, .delete-btn {
     border: none;
     padding: 5px 10px;
@@ -94,6 +107,11 @@ th {
     background-color: #c82333;
 }
 
+.edit-link {
+    text-decoration: none;
+    color: white;
+}
+
 @media screen and (max-width: 768px) {
     .filter-container {
         flex-direction: column;
@@ -105,4 +123,11 @@ th {
     .table-container {
         overflow-x: auto;
     }
+}
+
+.no-data {
+    text-align: center;
+    font-size: 1.1em;
+    color: #777;
+    padding: 10px;
 }

@@ -21,13 +21,11 @@ h2 {
     color: #333;
 }
 
-
 label {
     text-align: left;
     margin: 10px 0 5px;
     font-weight: bold;
 }
-
 
 input {
     padding: 10px;
@@ -35,6 +33,16 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+input.error {
+    border-color: red;
 }
 
 button {
@@ -47,6 +55,11 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
 }
 
 button:hover {

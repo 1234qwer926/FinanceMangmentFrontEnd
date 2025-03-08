@@ -1,32 +1,77 @@
-import React from "react";
-import "../PageCss/AddFinance.css"
+import React, { useState } from "react";
+import "../PageCss/AddFinance.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AddFinance = () => {
   const navigate = useNavigate();
+  const [financeData, setFinanceData] = useState({
+    date: "",
+    title: "",
+    amount: "",
+    type: "",
+    catalog: "",
+  });
+
+  const [error, setError] = useState(""); // State for error messages
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFinanceData({ ...financeData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token"); // Get token from storage
+    if (!token) {
+      alert("Session expired. Please log in again.");
+      navigate("/login");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/transactions", financeData, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Send token in headers
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 201) {
+        alert("Finance record added successfully!");
+        navigate("/"); // Redirect to transactions list
+      }
+    } catch (error) {
+      console.error("Error adding finance record:", error.response?.data || error.message);
+      setError(error.response?.data?.message || "Failed to add record. Please try again.");
+    }
+  };
 
   return (
     <div className="add-finance-container">
       <h2>Add Finance Record</h2>
-      <form>
+      {error && <p className="error-message">{error}</p>} {/* Show error if exists */}
+      <form onSubmit={handleSubmit}>
         <label>Date</label>
-        <input type="date" required />
+        <input type="date" name="date" value={financeData.date} onChange={handleChange} required />
 
         <label>Title</label>
-        <input type="text" placeholder="Enter title" required />
+        <input type="text" name="title" placeholder="Enter title" value={financeData.title} onChange={handleChange} required />
 
         <label>Amount</label>
-        <input type="number" placeholder="Enter amount" required />
+        <input type="number" name="amount" placeholder="Enter amount" value={financeData.amount} onChange={handleChange} required />
 
         <label>Type</label>
-        <select required>
+        <select name="type" value={financeData.type} onChange={handleChange} required>
           <option value="">Select Type</option>
           <option value="Income">Income</option>
           <option value="Expense">Expense</option>
         </select>
 
         <label>Catalog</label>
-        <select required>
+        <select name="catalog" value={financeData.catalog} onChange={handleChange} required>
           <option value="">Select Catalog</option>
           <option value="Food">Food</option>
           <option value="Shopping">Shopping</option>
