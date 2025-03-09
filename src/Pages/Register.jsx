@@ -50,6 +50,7 @@ const Register = () => {
                     {loading ? "Signing Up..." : "Sign Up"}
                 </button>
             </form>
+            <br />
         </div>
     );
 };

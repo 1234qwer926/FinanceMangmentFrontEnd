@@ -1,14 +1,24 @@
 import React from "react";
-import "../PageCss/Home.css"
+import Squares from "./Squares";
+import "../PageCss/Home.css";
 
 const Home = () => {
   return (
     <div className="home-container">
-      <header className="hero">
-        <h1>Manage Your Finances with Ease</h1>
-        <p>Track your income, expenses, and savings effortlessly.</p>
-        <button className="cta-btn">Get Started</button>
-      </header>
+      <div className="hero-wrapper">
+        <Squares 
+          speed={0.5} 
+          squareSize={40}
+          direction="diagonal"
+          borderColor="rgba(255, 255, 255, 0.2)" // Light white border
+          hoverFillColor="#222"
+        />
+        <header className="hero">
+          <h1>Manage Your Finances with Ease</h1>
+          <p>Track your income, expenses, and savings effortlessly.</p>
+          <button className="cta-btn">Get Started</button>
+        </header>
+      </div>
 
       <section className="features">
         <div className="feature-card">
