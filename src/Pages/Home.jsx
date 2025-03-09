@@ -10,7 +10,7 @@ const Home = () => {
           speed={0.5} 
           squareSize={40}
           direction="diagonal"
-          borderColor="rgba(255, 255, 255, 0.2)" // Light white border
+          borderColor="rgba(255, 255, 255, 0.2)" 
           hoverFillColor="#222"
         />
         <header className="hero">

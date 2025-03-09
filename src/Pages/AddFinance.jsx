@@ -13,7 +13,7 @@ const AddFinance = () => {
     catalog: "",
   });
 
-  const [error, setError] = useState(""); // State for error messages
+  const [error, setError] = useState(""); 
 
   // Handle input changes
   const handleChange = (e) => {
@@ -24,7 +24,7 @@ const AddFinance = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("token"); // Get token from storage
+    const token = localStorage.getItem("token"); 
     if (!token) {
       alert("Session expired. Please log in again.");
       navigate("/login");
@@ -34,14 +34,14 @@ const AddFinance = () => {
     try {
       const response = await axios.post("http://localhost:5000/api/transactions", financeData, {
         headers: {
-          Authorization: `Bearer ${token}`, // Send token in headers
+          Authorization: `Bearer ${token}`, 
           "Content-Type": "application/json",
         },
       });
 
       if (response.status === 201) {
         alert("Finance record added successfully!");
-        navigate("/"); // Redirect to transactions list
+        navigate("/"); 
       }
     } catch (error) {
       console.error("Error adding finance record:", error.response?.data || error.message);
@@ -52,7 +52,7 @@ const AddFinance = () => {
   return (
     <div className="add-finance-container">
       <h2>Add Finance Record</h2>
-      {error && <p className="error-message">{error}</p>} {/* Show error if exists */}
+      {error && <p className="error-message">{error}</p>} 
       <form onSubmit={handleSubmit}>
         <label>Date</label>
         <input type="date" name="date" value={financeData.date} onChange={handleChange} required />
